@@ -14,7 +14,7 @@
                     	}
                   	}
                 	?>
-                	<img src="../../assets/img/logo-jombang1.png"><hr>
+                	<img src="../../assets/img/logo2.png"><hr>
                   	<label style="font-weight: 700;"><i class="fas fa-id-card"></i> NIK  <i>(Nomor Induk Kependudukan)</i></label>
                   	<input type="text" class="form-control form-control-md" maxlength="16" onkeypress="return hanyaAngka(event)" name="fnik" placeholder="Masukkan NIK Anda..." required>
                     <script>

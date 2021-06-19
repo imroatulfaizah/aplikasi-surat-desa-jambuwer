@@ -28,8 +28,10 @@
 <div class="wrapper">
 	<header class="main-header">
   	<a href="../../../../../" class="logo" style="text-decoration:none">
-  		<span class="logo-mini"><img src="../../../../../assets/img/mini-logo.png"></span>
-      <span class="logo-lg"><img src="../../../../../assets/img/email.png"></span>
+    <span class="logo-mini"><img src="../../../../../assets/img/email.png" style="height:30px;"></span>
+  		<span class="logo-lg">E-MailService <img src="../../../../../assets/img/email.png" style="height:30px;"></span>
+  		<!-- <span class="logo-mini"><img src="../../../../../assets/img/mini-logo.png"></span>
+      <span class="logo-lg"><img src="../../../../../assets/img/email.png"></span> -->
   	</a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">

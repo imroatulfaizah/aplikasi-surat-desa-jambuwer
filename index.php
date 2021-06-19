@@ -55,7 +55,7 @@
 </div>
 <div class="container" style="max-height:cover; padding-top:50px; padding-bottom:120px" align="center">
 	<img src="assets/img/logo2.png"><hr>
-	<a class="text-light" style="font-size:18pt"><strong>WEB APLIKASI PELAYANAN SURAT ADMINISTRASI DESA</strong></a><br>
+	<a class="text-light" style="font-size:18pt"><strong>SISTEM INFORMASI PELAYANAN SURAT ADMINISTRASI UMUM</strong></a><br>
 	<?php  
 		include('config/koneksi.php');
 
@@ -63,6 +63,7 @@
         foreach($qTampilDesa as $row){
     ?>
 	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong><br>
+	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong>KECAMATAN <?php echo $row['kecamatan']; ?></strong><br>
 	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong><?php echo $row['kota']; ?></strong></a><hr>
 	<?php  
 		}

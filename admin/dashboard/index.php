@@ -264,7 +264,7 @@
                       ?>
                     </div><br>
                     <div style="font-size: 35pt; font-weight: 500;"><p>Halo, <strong><?php echo $_SESSION['lvl']; ?></strong></div>
-                    <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Web Aplikasi Pelayanan Surat Administrasi Desa Online.</strong></a></p></div><br><br><br>
+                    <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#" style="text-decoration:none"><strong>SISTEM INFORMASI PELAYANAN SURAT ADMINISTRASI UMUM</strong></a></p></div><br><br><br>
                     <div style="font-size: 10pt; font-weight: 500;">© E-<b>MailService</b> 2021. Hak Cipta Dilindungi.</div>
                   </div>
         				</div>

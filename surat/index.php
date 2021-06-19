@@ -53,9 +53,9 @@
            	?>
 		</div>
 		<div class="row">
-			<!-- <div class="col-sm-3 mt-4">
+			<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN</h5><br><br>
 		        		<a href="surat_keterangan/" class="btn btn-info">BUAT SURAT</a>
@@ -64,7 +64,7 @@
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN BERKELAKUAN BAIK</h5><br>
 		        		<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>
@@ -73,7 +73,7 @@
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br>
 		        		<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>
@@ -82,7 +82,7 @@
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</h5>
 		        		<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>
@@ -91,7 +91,7 @@
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN PERHIASAN</h5><br>
 		        		<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
@@ -100,16 +100,16 @@
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
 		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
-		  	</div> -->
+		  	</div>
 		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT LAPOR HAJATAN</h5><br><br>
 		        		<a href="surat_lapor_hajatan/" class="btn btn-info">BUAT SURAT</a>
@@ -118,7 +118,7 @@
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<img src="../assets/img/logo.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5><br><br>
 		        		<a href="surat_pengantar_skck/" class="btn btn-info">BUAT SURAT</a>
@@ -129,7 +129,7 @@
 	</div>
 </div>
 <div class="footer bg-dark text-center">
-    <span class="text-light"><strong>Copyright &copy; 2019 <a href="../" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
+    <span class="text-light"><strong>Copyright &copy; 2021 <a href="../" class="text-decoration-none text-white">E-MailService</a>.</strong> All rights reserved.</span>
 </div>
 </body>
 </html>

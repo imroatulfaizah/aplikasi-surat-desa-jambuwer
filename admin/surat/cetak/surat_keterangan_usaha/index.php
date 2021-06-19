@@ -32,7 +32,7 @@
 <body>
 <div>
 	<table width="100%">
-		<tr><img src="../../../../assets/img/logo-jombang-90x90.png" alt="" class="logo"></tr>
+		<tr><img src="../../../../assets/img/logo2.png" alt="" class="logo"></tr>
 		<div class="header">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH <?php echo $rows['kota']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>

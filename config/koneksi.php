@@ -2,7 +2,7 @@
 	$host 		= "localhost";
 	$username 	= "root";
 	$password 	= "";
-	$db_name 	= "db_e-suratdesa";
+	$db_name 	= "mail";
 
 	$connect = mysqli_connect($host,$username,$password,$db_name);
 
