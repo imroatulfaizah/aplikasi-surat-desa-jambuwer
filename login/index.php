@@ -25,6 +25,8 @@
 		if(isset($_GET['pesan'])){
 			if($_GET['pesan']=="gagal-menambah"){
 				echo "<div class='alert alert-danger'><center>Username atau Password Anda salah!</center></div>";
+			}if($_GET['pesan']=="berhasil"){
+				echo "<div class='alert alert-success'><center>NIK berhasil didaftarkan! Silahkan login</center></div>";
 			}
 		}
 	?>

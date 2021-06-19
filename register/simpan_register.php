@@ -38,7 +38,7 @@
                 if($tambahUser){
                     // var_dump("hai");
                     // die();
-                    header("location:index.php");
+                    header("location:../login/index.php?pesan=berhasil");
                 }
             }
             
