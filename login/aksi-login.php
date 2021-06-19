@@ -20,6 +20,11 @@
 			$_SESSION['lvl'] = "Kepala Desa";
 
 			header("location:../admin/");
+		}else if($login['level']=="penduduk"){
+			$_SESSION['username'] = $username;
+			$_SESSION['lvl'] = "Penduduk";
+
+			header("location:../");
 		}else{
 			header("location:index.php?pesan=login-gagal");
 		}	

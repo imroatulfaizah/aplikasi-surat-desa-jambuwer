@@ -1,4 +1,7 @@
 <html>
+<?php
+ session_start();
+?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,17 +26,22 @@
 	      		<li class="nav-item active">
 	        		<a class="nav-link" href="#"><i class="fas fa-envelope"></i>&nbsp;BUAT SURAT</a>
 	      		</li>
-	      		<!-- <li class="nav-item">
+	      		<li class="nav-item">
 	        		<a class="nav-link" href="../tentang/">TENTANG <b>E-MailService</b></a>
-	      		</li> -->
+	      		</li>
 	      		<li class="nav-item active ml-5">
 	      			<?php
-						session_start();
+						
 
 						if(empty($_SESSION['username'])){
 						    echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
 						}else if(isset($_SESSION['lvl'])){
-							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							if($_SESSION['lvl'] == "Penduduk"){
+								echo '<a class="btn btn-transparent text-light" href="akun/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							}else{
+								echo '<a class="btn btn-transparent text-light" href="admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							}
+							// echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
 							echo '<a class="btn btn-transparent text-light" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
 						}
 					?>

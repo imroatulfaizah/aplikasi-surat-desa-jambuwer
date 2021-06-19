@@ -18,6 +18,10 @@
 		}
 	</style>
 </head>
+<?php
+session_start();
+
+?>
 <body>
 <div>
 	<navbar class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -31,20 +35,32 @@
 	      		<li class="nav-item active">
 	        		<a class="nav-link" href="#"><i class="fas fa-home"></i>&nbsp;HOME</a>
 	      		</li>
-	      		<li class="nav-item active">
-	        		<a class="nav-link" href="surat/">BUAT SURAT</a>
+				  <?php
+					if(isset($_SESSION['lvl'])){
+						if($_SESSION['lvl'] == "Penduduk"){ ?>	
+						<li class="nav-item active">
+							<a class="nav-link" href="surat/">BUAT SURAT</a>
+						</li>  
+				<?php
+						}
+					}
+				  ?>
+	      		
+	      		<li class="nav-item">
+	        		<a class="nav-link active" href="tentang/">TENTANG <b>E-MailService</b></a>
 	      		</li>
-	      		<!-- <li class="nav-item">
-	        		<a class="nav-link" href="tentang/">TENTANG <b>e-SuratDesa</b></a>
-	      		</li> -->
 	      		<li class="nav-item active ml-5">
 	      			<?php
-						session_start();
+						
 
 						if(empty($_SESSION['username'])){
 						    echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
 						}else if(isset($_SESSION['lvl'])){
-							echo '<a class="btn btn-transparent text-light" href="admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							if($_SESSION['lvl'] == "Penduduk"){
+								echo '<a class="btn btn-transparent text-light" href="akun/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							}else{
+								echo '<a class="btn btn-transparent text-light" href="admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							}
 							echo '<a class="btn btn-transparent text-light" href="login/logout.php"><i class="fas fa-power-off"></i></a>';
 						}
 					?>
@@ -68,8 +84,13 @@
 	<?php  
 		}
 	?>
+	<?php 
+	if(isset($_SESSION['lvl'])){
+		if($_SESSION['lvl'] == "Penduduk"){ ?>
 	<a href="surat/" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
-</div>
+		<?php } 
+		}?>
+	</div>
 <div class="footer bg-transparent text-center mb-3 ">
     <span class="text-light"><strong>Copyright &copy; 2021 <a href="#" class="text-decoration-none text-white">E-MailService</a>.</strong> All rights reserved.</span>
 </div>
