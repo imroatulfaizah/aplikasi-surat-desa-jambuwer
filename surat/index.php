@@ -53,9 +53,11 @@
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 		<div>
 			<?php 
+			$tanggal = date("Y/m/d");
+			$NewDate=Date('d/m/Y', strtotime('+2 days'));
    	        	if(isset($_GET['pesan'])){
                    	if($_GET['pesan']=="berhasil"){
-                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa dalam 2-3 hari kerja!</center></div>";
+                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa tanggal "; echo $NewDate . "</center></div>";
               		}
               	}
            	?>
