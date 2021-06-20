@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 14, 2021 at 07:45 PM
+-- Generation Time: Jun 20, 2021 at 06:27 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_e-suratdesa`
+-- Database: `mail`
 --
 
 -- --------------------------------------------------------
@@ -55,13 +55,13 @@ INSERT INTO `dusun` (`id_dusun`, `nama_dusun`) VALUES
 DROP TABLE IF EXISTS `login`;
 CREATE TABLE IF NOT EXISTS `login` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(30) NOT NULL,
+  `nama` varchar(50) NOT NULL,
   `username` varchar(15) NOT NULL,
-  `email` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(32) NOT NULL,
   `level` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
@@ -69,7 +69,9 @@ CREATE TABLE IF NOT EXISTS `login` (
 
 INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`) VALUES
 (1, 'Administrator', 'admin', 'admin@e-mailservice.com', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(2, 'Kepala Desa', 'kades', 'kepaladesa@mailservice.com', '0cfa66469d25bd0d9e55d7ba583f9f2f', 'kades');
+(2, 'Kepala Desa', 'kades', 'kepaladesa@mailservice.com', '0cfa66469d25bd0d9e55d7ba583f9f2f', 'kades'),
+(4, 'Ridwan Muhammad', 'ridwan', 'ridwan.muhammad@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'penduduk'),
+(12, '3517112233440001', 'tes', 'tes@gmail.com', '28b662d883b6d76fd96e4ddc5e9ba780', 'penduduk');
 
 -- --------------------------------------------------------
 
@@ -183,7 +185,14 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan` (
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   KEY `idx_id_profil_desa` (`id_profil_desa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_keterangan`
+--
+
+INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan', NULL, '3517112233440001', 'Surat Keterangan Tidak Mampu', '2021-06-20 04:07:21', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -346,7 +355,14 @@ CREATE TABLE IF NOT EXISTS `surat_lapor_hajatan` (
   KEY `idx_id_profil_desa` (`id_profil_desa`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   KEY `idx_nik` (`nik`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_lapor_hajatan`
+--
+
+INSERT INTO `surat_lapor_hajatan` (`id_slh`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `jenis_hajat`, `hari`, `tanggal`, `jenis_hiburan`, `pemilik`, `alamat_pemilik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Lapor Hajatan', '121321', '3517112233440001', '35070', '', 'Khitanan', 'Senin', '2021-06-14 00:00:00', 'tidak ada', 'tidak ada', 'Tidak ada', '2021-06-14 22:42:48', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -373,14 +389,15 @@ CREATE TABLE IF NOT EXISTS `surat_pengantar_skck` (
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   KEY `idx_id_profil_desa` (`id_profil_desa`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `surat_pengantar_skck`
 --
 
 INSERT INTO `surat_pengantar_skck` (`id_sps`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `keperluan`, `keterangan`, `masa_berlaku`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Pengantar SKCK', NULL, '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', NULL, '2021-06-14 19:44:07', NULL, 'PENDING', 1);
+(1, 'Surat Pengantar SKCK', '121321', '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', '30 Hari', '2021-06-14 19:44:07', 1, 'SELESAI', 1),
+(2, 'Surat Pengantar SKCK', NULL, '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', NULL, '2021-06-15 13:18:55', NULL, 'PENDING', 1);
 
 --
 -- Constraints for dumped tables
