@@ -25,16 +25,22 @@
         $kewarganegaraan = $_POST['fkewarganegaraan'];
         $nama_ayah = $_POST['fnama_ayah'];
         $nama_ibu = $_POST['fnama_ibu'];
-
+        
         $qCekPenduduk = mysqli_query($connect, "SELECT * FROM penduduk WHERE nik='$nik'");
         $row          = mysqli_num_rows($qCekPenduduk);
 
         if($row > 0){
+
             header('location:index.php?pesan=gagal-menambah');
         }else{
+
             $qTambahPenduduk = "INSERT INTO penduduk VALUES(NULL, '$nik', '$nama', '$tempat_lahir', '$tgl_lahir', '$jenis_kelamin', '$agama', '$jalan', '$dusun', '$rt', '$rw', '$desa', '$kecamatan', '$kota', '$no_kk', '$pend_kk', '$pend_terakhir', '$pend_ditempuh', '$pekerjaan', '$status_perkawinan', '$status_dlm_keluarga', '$kewarganegaraan', '$nama_ayah', '$nama_ibu')";
+            var_dump($qTambahPenduduk);
             $tambahPenduduk = mysqli_query($connect, $qTambahPenduduk);
+            var_dump($tambahPenduduk);
             if($tambahPenduduk){
+                var_dump("tes");
+                die();
                 header("location:index.php");
             }
         }
