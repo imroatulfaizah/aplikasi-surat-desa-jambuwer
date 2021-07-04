@@ -18,7 +18,7 @@
 <body class="bg-light">
 <div>
 	<navbar class="navbar navbar-expand-lg navbar-dark bg-info">
-	  	<a class="navbar-brand ml-4 mt-1" href="../"><img src="../assets/img/mail.png"></a>
+	  	<a class="navbar-brand ml-4 mt-1" href="../"><img src="../assets/img/email.png" style="height:50px;"></a>
 	  	<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 	  	</button>

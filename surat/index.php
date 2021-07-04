@@ -49,10 +49,10 @@
 	    	</ul>
 	  	</div>
 	</navbar>
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 		<div>
-			<?php 
+			<php 
 			$tanggal = date("Y/m/d");
 			$NewDate=Date('d/m/Y', strtotime('+2 days'));
    	        	if(isset($_GET['pesan'])){
@@ -162,11 +162,63 @@
 		      		</div>
 		    	</div>
 		  	</div>
+			
 		</div>
 	</div>
+</div> -->
+<div class="container" style="max-height:cover; padding-top:50px; padding-bottom:120px" align="center">
+		<div>
+			<?php 
+			$tanggal = date("Y/m/d");
+			$NewDate=Date('d/m/Y', strtotime('+2 days'));
+   	        	if(isset($_GET['pesan'])){
+                   	if($_GET['pesan']=="berhasil"){
+                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa tanggal "; echo $NewDate . "</center></div>";
+              		}
+              	}
+           	?>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Pilih Jenis Surat</label>
+			<div class="col-sm-8">
+			<select id="jenis_surat" class="form-control" required>
+				<option id="a" value="e">-- Jenis Surat --</option>
+				<option value="Laki-laki">SURAT KETERANGAN BERKELAKUAN BAIK</option>
+				<option value="surat_keterangan_domisili/">SURAT KETERANGAN DOMISILI</option>
+				<option value="surat_keterangan_kepemilikan_kendaraan_bermotor/">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</option>
+				<option value="surat_keterangan_perhiasan/">SURAT KETERANGAN PERHIASAN</option>
+				<option value="surat_keterangan_usaha/">SURAT KETERANGAN USAHA</option>
+				<option value="surat_lapor_hajatan/">SURAT LAPOR HAJATAN</option>
+				<option value="surat_pengantar_skck/">SURAT PENGANTAR SKCK</option>
+				<option value="surat_keterangan_tidakmampu/">SURAT KETERANGAN TIDAK MAMPU</option>
+				<option value="surat_keterangan_beasiswa/">SURAT KETERANGAN BEASISWA</option>
+			</select>
+			</div>
+		</div>
+		<div class="col-sm-7 mt-12">
+			<div class="card">
+				<!-- <img src="../assets/img/logo.png" class="card-img-top" alt="..."> -->
+				<div class="card-body text-center">
+					<h5 class="card-title">PERMINTAAN SURAT</h5><br><br>
+					<a id="link" href="" class="btn btn-info">BUAT SURAT</a>
+				</div>
+			</div>
+		</div>
+</div>
+<div>
+<br><br><br><br><br><br><br><br><br><br><br>
 </div>
 <div class="footer bg-dark text-center">
     <span class="text-light"><strong>Copyright &copy; 2021 <a href="../" class="text-decoration-none text-white">E-MailService</a>.</strong> All rights reserved.</span>
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+		$("#jenis_surat").click(function () {
+    		console.log("es");
+            var selectedid  = $("#jenis_surat option:selected").val();
+			console.log(selectedid);
+            $("#link").attr("href",""+selectedid);	
+		});
+</script>
 </body>
 </html>
