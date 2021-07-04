@@ -79,6 +79,7 @@
               <th><strong>Jenis Surat</strong></th>
               <th><strong>Status</strong></th>
               <th><strong>Aksi</strong></th>
+              <th><strong>Keterangan</strong></th>
             </tr>
           </thead>
           <tbody>
@@ -159,6 +160,10 @@
                 <?php
                   }
                 ?>
+              </td>
+              <td>
+              <!-- <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"> -->
+              <a class="btn btn-cancel btn-sm" href='ambil_surat.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-suitcase"></i><b> AMBIL SURAT</b></a>
               </td>
             </tr>
             <?php
