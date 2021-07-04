@@ -154,6 +154,7 @@
                         <select name="fdusun" class="form-control" style="text-transform: capitalize;" required>
                           <option value="">-- Dusun --</option>
                           <?php
+                          include ('../../config/koneksi.php');
                             $qTampilDusun = "SELECT * FROM dusun";
                             $tampilDusun = mysqli_query($connect, $qTampilDusun);
                             while($rows = mysqli_fetch_assoc($tampilDusun)){
