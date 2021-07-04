@@ -94,7 +94,8 @@
                 UNION SELECT penduduk.nama, surat_keterangan_perhiasan.id_skp, surat_keterangan_perhiasan.no_surat, surat_keterangan_perhiasan.nik, surat_keterangan_perhiasan.jenis_surat, surat_keterangan_perhiasan.status_surat, surat_keterangan_perhiasan.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_perhiasan ON surat_keterangan_perhiasan.nik = penduduk.nik WHERE surat_keterangan_perhiasan.status_surat='selesai'
                 UNION SELECT penduduk.nama, surat_keterangan_usaha.id_sku, surat_keterangan_usaha.no_surat , surat_keterangan_usaha.nik , surat_keterangan_usaha.jenis_surat , surat_keterangan_usaha.status_surat , surat_keterangan_usaha.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai'
                 UNION SELECT penduduk.nama, surat_lapor_hajatan.id_slh, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='selesai' 
-                UNION SELECT penduduk.nama, surat_pengantar_skck.id_sps, surat_pengantar_skck.no_surat, surat_pengantar_skck.nik, surat_pengantar_skck.jenis_surat, surat_pengantar_skck.status_surat, surat_pengantar_skck.tanggal_surat FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='selesai'");
+                UNION SELECT penduduk.nama, surat_pengantar_skck.id_sps, surat_pengantar_skck.no_surat, surat_pengantar_skck.nik, surat_pengantar_skck.jenis_surat, surat_pengantar_skck.status_surat, surat_pengantar_skck.tanggal_surat FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='selesai'
+                UNION SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sk, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.status_surat='selesai' ");
               foreach($qTampil as $row){
             ?>
             <tr>
@@ -158,12 +159,16 @@
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_pengantar_skck/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
+                  } else if($row['jenis_surat']=="Surat Keterangan Tidak Mampu"){
+                ?>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_tidak_mampu/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <?php
                   }
                 ?>
               </td>
               <td>
               <!-- <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"> -->
-              <a class="btn btn-cancel btn-sm" href='ambil_surat.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-suitcase"></i><b> AMBIL SURAT</b></a>
+              <a class="btn btn-cancel btn-sm" href='ambil_surat.php?jenis=<?php echo $row['jenis_surat'] ?>&id=<?php echo $row['id_sk']; ?>'><i class="fa fa-suitcase"></i><b> AMBIL SURAT</b></a>
               </td>
             </tr>
             <?php

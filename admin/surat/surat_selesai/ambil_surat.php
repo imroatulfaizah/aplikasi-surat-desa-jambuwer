@@ -115,6 +115,12 @@
                         <input type="text" name="fid_surat" value="<?php echo $_GET['id'];?>" class="form-control" style="text-transform: capitalize;">
                       </div>
                     </div>
+                    <div class="form-group" hidden>
+                      <label class="col-sm-4 control-label">Jenis Surat</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fjenis_surat" value="<?php echo $_GET['jenis'];?>" class="form-control" style="text-transform: capitalize;">
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama</label>
                       <div class="col-sm-8">
