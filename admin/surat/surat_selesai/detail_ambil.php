@@ -84,12 +84,25 @@
         <div class="col-md-12">
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title"><i class="fas fa-user-plus"></i> Form Pengambilan Surat</h3>
+              <h3 class="box-title"><i class="fas fa-user-plus"></i> Detail Pengambilan Surat</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
               </div>
             </div>
+            <?php
+            $id = $_GET['id'];
+            $jenis = $_GET['jenis'];
+            // var_dump($jenis);
+
+              include ('../../../config/koneksi.php');
+
+              $no = 1;
+              $qTampil = mysqli_query($connect, "SELECT * FROM surat_diambil WHERE id_surat = $id AND jenis_surat = '$jenis'");
+            //   var_dump($qTampil);
+              foreach($qTampil as $row){
+            //    var_dump($qTampil);
+            ?>
           <div class="box-body">
             <div class="row">
               <form class="form-horizontal" method="post" action="ambil_simpan.php">
@@ -124,19 +137,19 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama" class="form-control" style="text-transform: capitalize;" placeholder="Nama" required>
+                        <input type="text" name="fnama" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['nama']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Alamat</label>
                       <div class="col-sm-8">
-                        <input type="text" name="falamat" class="form-control" style="text-transform: capitalize;" placeholder="Alamat" required>
+                        <input type="text" name="falamat" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['alamat']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">No. Telp</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnotelp" class="form-control" style="text-transform: capitalize;" placeholder="No. Telp" required>
+                        <input type="text" name="fnotelp" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['no_telp']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
@@ -146,14 +159,15 @@
                         </div>
                     </div>
                   </div>
-                  <div class="box-footer pull-right">
+                  <!-- <div class="box-footer pull-right">
                     <input type="reset" class="btn btn-default" value="Batal">
                     <input type="submit" name="submit" class="btn btn-info" value="Submit">
-                  </div>
+                  </div> -->
                 </div>
               </form>
             </div>
           </div>
+          <?php } ?>
           <div class="box-footer">
           </div>
         </div>

@@ -107,7 +107,7 @@
                   UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_tidakmampu WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='pending'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
@@ -133,7 +133,8 @@
                   UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'");
+                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='selesai'");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
               ?>
@@ -190,7 +191,8 @@
                   UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'");
+                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='selesai'");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
               ?>
