@@ -214,7 +214,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
 		$("#jenis_surat").click(function () {
-    		console.log("es");
             var selectedid  = $("#jenis_surat option:selected").val();
 			console.log(selectedid);
             $("#link").attr("href",""+selectedid);	
