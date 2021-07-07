@@ -64,10 +64,10 @@
 </aside>
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Data Penduduk</h1>
+    <h1>Data Pejabat Desa</h1>
     <ol class="breadcrumb">
       <li><a href="../dashboard/"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-      <li class="active">Data Penduduk</li>
+      <li class="active">Data Pejabat Desa</li>
     </ol>
   </section>
   <section class="content">      
@@ -88,8 +88,8 @@
         <?php 
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
         ?>
-        <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
-        <a target="_blank" class="btn btn-info btn-md" href='export-penduduk.php'><i class="fas fa-file-export"></i> Export .XLS</a>
+        <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Pejabat Desa</a>
+        <!-- <a target="_blank" class="btn btn-info btn-md" href='export-penduduk.php'><i class="fas fa-file-export"></i> Export .XLS</a> -->
         <?php 
           } else {
 
@@ -102,10 +102,8 @@
               <th><strong>No</strong></th>
               <th><strong>NIK</strong></th>
               <th><strong>Nama</strong></th>
-              <th><strong>Tempat/Tgl Lahir</strong></th>
-              <th><strong>Jenis Kelamin</strong></th>
-              <th><strong>Agama</strong></th>
-              <th><strong>Alamat</strong></th>
+              <th><strong>Jabatan</strong></th>
+              <th><strong>Status</strong></th>
               <?php 
                 if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
               ?>
@@ -122,43 +120,33 @@
               include ('../../config/koneksi.php');
 
               $no = 1;
-              $qTampil = mysqli_query($connect, "SELECT * FROM penduduk");
+              $qTampil = mysqli_query($connect, "SELECT * FROM pejabat_desa");
               foreach($qTampil as $row){
-                $tanggal = $row['tgl_lahir'];
+                
             ?>
             <tr>
               <td><?php echo $no++; ?></td>
-              <td><?php echo $row['nik']; ?></td>
-              <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
+              <td><?php echo $row['NIK']; ?></td>
+              <td style="text-transform: capitalize;"><?php echo $row['nama_pejabat_desa']; ?></td>
+              <td style="text-transform: capitalize;"><?php echo $row['jabatan']?></td>
+              
               <?php
-                $tanggal = date('d', strtotime($row['tgl_lahir']));
-                $bulan = date('F', strtotime($row['tgl_lahir']));
-                $tahun = date('Y', strtotime($row['tgl_lahir']));
-                $bulanIndo = array(
-                    'January' => 'Januari',
-                    'February' => 'Februari',
-                    'March' => 'Maret',
-                    'April' => 'April',
-                    'May' => 'Mei',
-                    'June' => 'Juni',
-                    'July' => 'Juli',
-                    'August' => 'Agustus',
-                    'September' => 'September',
-                    'October' => 'Oktober',
-                    'November' => 'November',
-                    'December' => 'Desember'
-                );
+                if($row['status']=="1"){
+                    ?>
+                    <td style="text-transform: capitalize;"><?php echo "Active" ?></td>
+                <?php
+                }else{
+                    ?>
+                    <td style="text-transform: capitalize;"><?php echo "Non Active" ?></td>
+                    <?php
+                }
               ?>
-              <td style="text-transform: capitalize;"><?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
-              <td style="text-transform: capitalize;"><?php echo $row['jenis_kelamin']; ?></td>
-              <td style="text-transform: capitalize;"><?php echo $row['agama']; ?></td>
-              <td style="text-transform: capitalize;"><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
               <?php 
                 if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
               ?>
               <td>
-                <a class="btn btn-success btn-sm" href='edit-penduduk.php?id=<?php echo $row['id_penduduk']; ?>'><i class="fa fa-edit"></i></a>
-                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?id=<?php echo $row['id_penduduk']; ?>' onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
+                <a class="btn btn-success btn-sm" href='edit-penduduk.php?id=<?php echo $row['id_pejabat_desa']; ?>'><i class="fa fa-edit"></i></a>
+                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?id=<?php echo $row['id_pejabat_desa']; ?>' onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
               </td>
               <?php  
                 } else {
