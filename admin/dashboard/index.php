@@ -33,7 +33,7 @@
    			</a>
    		</li>
       <?php
-        if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+        if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator') || ($_SESSION['lvl'] = "Kepala Desa")){
       ?>
    		<li class="treeview">
    			<a href="#">
