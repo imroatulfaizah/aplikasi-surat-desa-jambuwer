@@ -12,7 +12,7 @@
 	$update = mysqli_query($connect, $qUpdate);
 
 	if($update){
-		header('location:../pejabatdesa/');
+		header('location:../pejabatdesa?pesan=berhasil-update');
 	}else{
 	 	echo ("<script LANGUAGE='JavaScript'>window.alert('Gagal mengubah data Pejabat Desa'); window.location.href='../pejabatdesa/'</script>");
 	}

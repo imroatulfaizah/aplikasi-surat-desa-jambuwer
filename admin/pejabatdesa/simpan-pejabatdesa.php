@@ -16,7 +16,7 @@
             $qTambahPejabat = "INSERT INTO pejabat_desa VALUES(NULL, '$nik', '$nama', '$jabatan', '$status')";
             $tambahPejabat = mysqli_query($connect, $qTambahPejabat);
             if($tambahPejabat){
-                header("location:index.php");
+                header("location:index.php?pesan=berhasil-tambah");
             }
         }
     }

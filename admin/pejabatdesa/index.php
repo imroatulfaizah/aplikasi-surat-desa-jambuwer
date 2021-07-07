@@ -112,6 +112,12 @@
               }
               if($_GET['pesan']=="gagal-menghapus"){
                 echo "<div class='alert alert-danger'><center>Anda tidak bisa menghapus data tersebut.</center></div>";
+              }if($_GET['pesan']=="berhasil-update"){
+                echo "<div class='alert alert-success'><center>Data berhasil diubah</center></div>";
+              }if($_GET['pesan']=="berhasil-tambah"){
+                echo "<div class='alert alert-success'><center>Data berhasil ditambahkan</center></div>";
+              }if($_GET['pesan']=="berhasil-hapus"){
+                echo "<div class='alert alert-success'><center>Data berhasil dihapus</center></div>";
               }
             }
           ?>
