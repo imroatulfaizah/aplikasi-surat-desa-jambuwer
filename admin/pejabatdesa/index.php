@@ -88,7 +88,7 @@
         <?php 
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
         ?>
-        <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Pejabat Desa</a>
+        <a class="btn btn-success btn-md" href='tambah-pejabatdesa.php'><i class="fa fa-user-plus"></i> Tambah Data Pejabat Desa</a>
         <!-- <a target="_blank" class="btn btn-info btn-md" href='export-penduduk.php'><i class="fas fa-file-export"></i> Export .XLS</a> -->
         <?php 
           } else {
@@ -145,8 +145,8 @@
                 if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
               ?>
               <td>
-                <a class="btn btn-success btn-sm" href='edit-penduduk.php?id=<?php echo $row['id_pejabat_desa']; ?>'><i class="fa fa-edit"></i></a>
-                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?id=<?php echo $row['id_pejabat_desa']; ?>' onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
+                <a class="btn btn-success btn-sm" href='edit-pejabatdesa.php?id=<?php echo $row['id_pejabat_desa']; ?>'><i class="fa fa-edit"></i></a>
+                <a class="btn btn-danger btn-sm" href='hapus-pejabatdesa.php?id=<?php echo $row['id_pejabat_desa']; ?>' onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
               </td>
               <?php  
                 } else {

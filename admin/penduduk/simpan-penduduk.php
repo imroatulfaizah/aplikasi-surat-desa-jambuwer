@@ -39,8 +39,6 @@
             $tambahPenduduk = mysqli_query($connect, $qTambahPenduduk);
             var_dump($tambahPenduduk);
             if($tambahPenduduk){
-                var_dump("tes");
-                die();
                 header("location:index.php");
             }
         }
