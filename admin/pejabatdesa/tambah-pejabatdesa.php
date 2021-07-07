@@ -50,7 +50,7 @@
         }else{
           ?>
           <li>
-     				<a href="../pejabatdesa"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
+     				<a href="../penduduk"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
      			</li>
            <?php
         }

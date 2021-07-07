@@ -169,11 +169,29 @@
 <div class="container" style="max-height:cover; padding-top:50px; padding-bottom:120px" align="center">
 		<div>
 			<?php 
-			$tanggal = date("Y/m/d");
-			$NewDate=Date('d/m/Y', strtotime('+2 days'));
+			$tanggal = date("Y-m-d");
+			$getDay = date("l");
+
+			if($getDay == "Friday"){
+
+				// $NewDate=Date('d/m/Y', strtotime('+3 days'));
+				// $getDate = strtotime($NewDate);
+				// $hari = date('l', $getDate);
+				$hari = $d=strtotime("next Monday");
+			}else{
+				// $tes = $tanggal + 1;
+				// var_dump($tanggal);
+				// var_dump($getDay);
+				// die();
+				// $NewDate=Date('d/m/Y', strtotime('+1 days'));
+				// $getDate = strtotime($NewDate);
+				// $hari = date('l', $getDate);	
+				$hari = strtotime("tomorrow");	
+			}
+			
    	        	if(isset($_GET['pesan'])){
                    	if($_GET['pesan']=="berhasil"){
-                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa tanggal "; echo $NewDate . "</center></div>";
+                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa tanggal "; echo date("l Y-m-d", $hari) . "</center></div>";
               		}
               	}
            	?>

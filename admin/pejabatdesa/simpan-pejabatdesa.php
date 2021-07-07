@@ -9,6 +9,7 @@
         
         $qCekPejabat = mysqli_query($connect, "SELECT * FROM pejabat_desa WHERE nik='$nik'");
         $row          = mysqli_num_rows($qCekPejabat);
+
         if($row > 0){
             header('location:index.php?pesan=gagal-menambah');
         }else{
