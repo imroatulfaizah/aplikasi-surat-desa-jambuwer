@@ -3,14 +3,14 @@
   	include ('../../../../config/koneksi.php');
 
   	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.id_sk='$id'");
+  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_tidak_mampu.* FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.id_sk='$id'");
   	while($row = mysqli_fetch_array($qCek)){
 
         $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
         foreach($qTampilDesa as $rows){
 
 			$id_pejabat_desa = $row['id_pejabat_desa'];
-		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_keterangan ON surat_keterangan.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_keterangan.id_pejabat_desa = '$id_pejabat_desa' AND surat_keterangan.id_sk='$id'");
+		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_keterangan_tidak_mampu.id_pejabat_desa = '$id_pejabat_desa' AND surat_keterangan_tidak_mampu.id_sk='$id'");
 		  	while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
 ?>
 

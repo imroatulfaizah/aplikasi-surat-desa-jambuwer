@@ -6,7 +6,7 @@
 	$id_pejabat_desa 	= $_POST['ft_tangan'];
 	$status_surat 		= "SELESAI";
 
-	$qUpdate 	= "UPDATE surat_keterangan SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' WHERE id_sk='$id'";
+	$qUpdate 	= "UPDATE surat_keterangan_tidak_mampu SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' WHERE id_sk='$id'";
 	$update 	= mysqli_query($connect, $qUpdate);
 
 	if($update){

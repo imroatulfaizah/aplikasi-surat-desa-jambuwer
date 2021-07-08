@@ -156,8 +156,9 @@
                     $surat_fetch = mysqli_fetch_array($surat);
                     $jumlah = mysqli_query($connect, "SELECT * FROM surat_keterangan WHERE jenis_surat = 'Surat Keterangan Status'");
                     $row_jumlah = mysqli_num_rows($jumlah);
+                    $no = $row_jumlah + 1;
                     $year = date("Y");
-                    $number_surat = $surat_fetch['no_surat']."/". $row_jumlah ."/35.07.31.2006"."/".$year;
+                    $number_surat = $surat_fetch['no_surat']."/". $no ."/35.07.31.2006"."/".$year;
                   
                   ?>
                     <div class="form-group">
