@@ -210,6 +210,8 @@
 				<option value="surat_pengantar_skck/">SURAT PENGANTAR SKCK</option>
 				<option value="surat_keterangan_tidakmampu/">SURAT KETERANGAN TIDAK MAMPU</option>
 				<option value="surat_keterangan_beasiswa/">SURAT KETERANGAN BEASISWA</option>
+				<option value="surat_keterangan_status/">SURAT KETERANGAN STATUS</option>
+				<option value="surat_keterangan_status/">SURAT KETERANGAN </option>
 			</select>
 			</div>
 		</div>

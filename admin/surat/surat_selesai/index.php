@@ -199,7 +199,11 @@
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_tidak_mampu/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
-                  }
+                  } else if($row['jenis_surat']=="Surat Keterangan Status"){
+                ?>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_status/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <?php
+                  } 
                 ?>
               </td>
               <td>
