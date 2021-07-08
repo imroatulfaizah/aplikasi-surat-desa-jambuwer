@@ -131,7 +131,9 @@
                 UNION SELECT penduduk.nama, surat_keterangan_usaha.id_sku, surat_keterangan_usaha.no_surat , surat_keterangan_usaha.nik , surat_keterangan_usaha.jenis_surat , surat_keterangan_usaha.status_surat , surat_keterangan_usaha.tanggal_surat, surat_keterangan_usaha.ambil FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai'
                 UNION SELECT penduduk.nama, surat_lapor_hajatan.id_slh, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat, surat_lapor_hajatan.ambil FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='selesai' 
                 UNION SELECT penduduk.nama, surat_pengantar_skck.id_sps, surat_pengantar_skck.no_surat, surat_pengantar_skck.nik, surat_pengantar_skck.jenis_surat, surat_pengantar_skck.status_surat, surat_pengantar_skck.tanggal_surat, surat_pengantar_skck.ambil FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='selesai'
-                UNION SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sk, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat, surat_keterangan_tidak_mampu.ambil FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.status_surat='selesai' ");
+                UNION SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sk, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat, surat_keterangan_tidak_mampu.ambil FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.status_surat='selesai' 
+                UNION SELECT penduduk.nama, surat_keterangan_beasiswa.id_sk, surat_keterangan_beasiswa.no_surat, surat_keterangan_beasiswa.nik, surat_keterangan_beasiswa.jenis_surat, surat_keterangan_beasiswa.status_surat, surat_keterangan_beasiswa.tanggal_surat, surat_keterangan_beasiswa.ambil FROM penduduk LEFT JOIN surat_keterangan_beasiswa ON surat_keterangan_beasiswa.nik = penduduk.nik WHERE surat_keterangan_beasiswa.status_surat='selesai'
+                ");
               foreach($qTampil as $row){
             ?>
             <tr>
@@ -210,6 +212,10 @@
                   } else if($row['jenis_surat']=="Surat Keterangan Penghasilan Orang Tua"){
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_penghasilan_orang_tua/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <?php
+                  } else if($row['jenis_surat']=="Surat Keterangan Beasiswa"){
+                ?>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_beasiswa/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
                   } 
                 ?>

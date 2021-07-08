@@ -142,6 +142,7 @@
                   UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_beasiswa WHERE status_surat='pending'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;

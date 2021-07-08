@@ -200,8 +200,8 @@
 			<label class="col-sm-4 control-label">Pilih Jenis Surat</label>
 			<div class="col-sm-8">
 			<select id="jenis_surat" class="form-control" required>
-				<option id="a" value="e">-- Jenis Surat --</option>
-				<option value="Laki-laki">SURAT KETERANGAN BERKELAKUAN BAIK</option>
+				<option id="" value="">-- Jenis Surat --</option>
+				<option value="surat_keterangan_berkelakuan_baik">SURAT KETERANGAN BERKELAKUAN BAIK</option>
 				<option value="surat_keterangan_domisili/">SURAT KETERANGAN DOMISILI</option>
 				<option value="surat_keterangan_kepemilikan_kendaraan_bermotor/">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</option>
 				<option value="surat_keterangan_perhiasan/">SURAT KETERANGAN PERHIASAN</option>

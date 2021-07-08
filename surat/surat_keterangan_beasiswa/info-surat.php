@@ -117,19 +117,56 @@
 							</div>
 						</div>
 						<br>
+						<div class="row">
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Nama Anak</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fpemilik" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Anak" required>
+						               	<input type="text" name="fnamaanak" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Anak" required>
 						           	</div>
+						        </div>
+						  	</div>
+							  <div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Tempat Lahir</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="ftempatlahir" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Tempat Lahir" required>
+						           	</div>
+						        </div>
+						  	</div>
+							  <div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Tanggal</label>
+						           	<div class="col-sm-12">
+						               	<input type="date" name="ftanggal" class="form-control" required>
+						           	</div>
+						        </div>
+						  	</div>
+							  <div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>
+						           	<div class="col-sm-12">
+			                        	<select name="fjk" class="form-control" required>
+			                          		<option value="">-- Jenis Kelamin --</option>
+			                          		<option value="Laki-Laki">Laki-Laki</option>
+			                          		<option value="Perempuan">Perempuan</option>
+			                        	</select>
+			                      	</div>
 						        </div>
 						  	</div>
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Nama Sekolah</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat_pemilik" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Sekolah" required>
+						               	<input type="text" name="fsekolah" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Sekolah" required>
+						           	</div>
+						        </div>
+						  	</div>
+							  <div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Kelas</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fkelas" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Kelas" required>
 						           	</div>
 						        </div>
 						  	</div>
