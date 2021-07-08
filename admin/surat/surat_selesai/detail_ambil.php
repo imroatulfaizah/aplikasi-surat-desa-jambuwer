@@ -189,8 +189,9 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">KTP</label>
                         <div class="col-md-8">
-                            <input name="ktp" type="file" required="required">
+                        <td><img src="../../../gambar/<?php echo $row['ktp'] ?>" width="420" height="300"></td>
                         </div>
+                        
                     </div>
                   </div>
                   <!-- <div class="box-footer pull-right">
