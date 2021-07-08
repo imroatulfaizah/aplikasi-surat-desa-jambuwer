@@ -115,10 +115,19 @@
                 </div>
                 <div class="col-md-6">
                   <div class="box-body">
+                  <?php 
+                    $surat = mysqli_query($connect, "SELECT * FROM nomor_surat WHERE jenis_surat = 'surat_pengantar_skck'");
+                    $surat_fetch = mysqli_fetch_array($surat);
+                    $jumlah = mysqli_query($connect, "SELECT * FROM surat_pengantar_skck");
+                    $row_jumlah = mysqli_num_rows($jumlah);
+                    $year = date("Y");
+                    $number_surat = $surat_fetch['no_surat']."/". $row_jumlah ."/35.07.31.2006"."/".$year;
+                  
+                  ?>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">No. Surat</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fno_surat" value="<?php echo $row['no_surat']; ?>" class="form-control" placeholder="Masukkan No. Surat" required>
+                        <input type="text" name="fno_surat" value="<?php echo $number_surat; ?>" class="form-control" readonly required>
                       </div>
                     </div>
                   </div>
