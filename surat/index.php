@@ -208,10 +208,11 @@
 				<option value="surat_keterangan_usaha/">SURAT KETERANGAN USAHA</option>
 				<option value="surat_lapor_hajatan/">SURAT LAPOR HAJATAN</option>
 				<option value="surat_pengantar_skck/">SURAT PENGANTAR SKCK</option>
-				<option value="surat_keterangan_tidakmampu/">SURAT KETERANGAN TIDAK MAMPU</option>
+				<option value="surat_keterangan_tidak_mampu/">SURAT KETERANGAN TIDAK MAMPU</option>
 				<option value="surat_keterangan_beasiswa/">SURAT KETERANGAN BEASISWA</option>
 				<option value="surat_keterangan_status/">SURAT KETERANGAN STATUS</option>
 				<option value="surat_keterangan_kehilangan/">SURAT KETERANGAN KEHILANGAN</option>
+				<option value="surat_keterangan_penghasilan_orang_tua/">SURAT KETERANGAN PENGHASILAN ORANG TUA</option>
 			</select>
 			</div>
 		</div>
