@@ -121,13 +121,23 @@
 						<div class="row">
 						  	<div class="col-sm-12">
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Status</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Barang yang Hilang</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fkeperluan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Status Perkawinan" required>
+						               	<input type="text" name="fkeperluan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Barang yang Hilang" required>
 						           	</div>
 						        </div>
 						  	</div>
 						</div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-12" style="font-weight: 500;">Tanggal</label>
+                                    <div class="col-sm-12">
+                                        <input type="date" name="ftgl_hilang" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 						<hr width="97%">
 						<div class="container-fluid">
 		                	<input type="reset" class="btn btn-warning" value="Batal">

@@ -211,7 +211,7 @@
 				<option value="surat_keterangan_tidakmampu/">SURAT KETERANGAN TIDAK MAMPU</option>
 				<option value="surat_keterangan_beasiswa/">SURAT KETERANGAN BEASISWA</option>
 				<option value="surat_keterangan_status/">SURAT KETERANGAN STATUS</option>
-				<option value="surat_keterangan_status/">SURAT KETERANGAN </option>
+				<option value="surat_keterangan_kehilangan/">SURAT KETERANGAN KEHILANGAN</option>
 			</select>
 			</div>
 		</div>
