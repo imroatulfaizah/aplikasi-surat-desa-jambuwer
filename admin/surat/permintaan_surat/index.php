@@ -199,6 +199,10 @@
                         ?>
                         <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_status/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php 
+                          } else if($row['jenis_surat']=="Surat Keterangan Kehilangan"){
+                        ?>
+                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_kehilangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
+                        <?php 
                           }
                         ?>
                       </td>

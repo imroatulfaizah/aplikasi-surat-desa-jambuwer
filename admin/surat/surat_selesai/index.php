@@ -203,6 +203,10 @@
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_status/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
+                  } else if($row['jenis_surat']=="Surat Keterangan Kehilangan"){
+                ?>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_kehilangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <?php
                   } 
                 ?>
               </td>
