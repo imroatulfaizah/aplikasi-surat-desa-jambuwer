@@ -21,8 +21,8 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN</b></h5></a>
-							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
+							<a class="col-sm-6"><h5><b>SURAT KETERANGAN TIDAK MAMPU</b></h5></a>
+							<!-- <a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a> -->
 						</div>
 					</div>
 					<hr>
@@ -117,8 +117,8 @@
 							</div>
 						</div>
 						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
-						<div class="row">
+						<!-- <h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%"> -->
+						<!-- <div class="row">
 						  	<div class="col-sm-12">
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Keperluan Surat</label>
@@ -127,7 +127,7 @@
 						           	</div>
 						        </div>
 						  	</div>
-						</div>
+						</div> -->
 						<hr width="97%">
 						<div class="container-fluid">
 		                	<input type="reset" class="btn btn-warning" value="Batal">

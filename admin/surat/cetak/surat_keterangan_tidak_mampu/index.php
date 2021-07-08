@@ -44,14 +44,14 @@
 		</div>
 		<br>
 		<div align="center"><u><h4 class="kop">SURAT KETERANGAN</h4></u></div>
-		<div align="center"><h4 class="kop3">Nomor :605.2/<?php echo $row['no_surat']; ?>/35.07.31.2006/2021&nbsp;&nbsp;&nbsp;</h4></div>
+		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
 	<br>
 	<div class="clear"></div>
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?>, Provinsi Jawa Timur</a>, menerangkan dengan sebenarnya bahwa :
 				</td>
 			</tr>
 		</table>
@@ -92,20 +92,25 @@
 				<td>:</td>
 				<td><?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
+            <tr>
+				<td class="indentasi">NIK</td>
+				<td>:</td>
+				<td><?php echo $row['nik']; ?></td>
+			</tr>
 			<tr>
 				<td class="indentasi">Agama</td>
 				<td>:</td>
 				<td><?php echo $row['agama']; ?></td>
 			</tr>
+            <tr>
+				<td class="indentasi">Status</td>
+				<td>:</td>
+				<td><?php echo $row['status_perkawinan']; ?></td>
+			</tr>
 			<tr>
 				<td class="indentasi">Pekerjaan</td>
 				<td>:</td>
 				<td><?php echo $row['pekerjaan']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">NIK</td>
-				<td>:</td>
-				<td><?php echo $row['nik']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Alamat</td>
@@ -121,9 +126,14 @@
 		<br><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Adalah benar-benar penduduk <a style="text-transform: capitalize;"> Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a> yang mana orang tersebut di atas benar-benar tidak mampu </td>
+				<td class="indentasi">Adalah benar – benar penduduk Desa Jambuwer Kecamatan Kromengan Kabupaten Malang yang mana orang tersebut di atas benar-benar tidak mampu.</td>
 			</tr>
 		</table><br>
+		<!-- <table width="100%">
+			<tr>
+				<td class="indentasi">Surat keterangan ini dipergunakan untuk <a style="text-transform: capitalize;"><u><b><php echo $row['keperluan']; ?>.</a></u></b></td>
+			</tr>
+		</table><br> -->
 		<table width="100%">
 			<tr>
 				<td class="indentasi">Demikian Surat keterangan ini di buat dengan sebenarnya dan dapat digunakan sebagaimana mestinya dan atas perhatian dan keiklasanya kami sampaikan terimakasih.</td>

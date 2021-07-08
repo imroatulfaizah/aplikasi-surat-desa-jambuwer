@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_tidak_mampu.* FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.id_sk='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.id_sk='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -154,10 +154,11 @@
                   <?php 
                     $surat = mysqli_query($connect, "SELECT * FROM nomor_surat WHERE jenis_surat = 'surat_keterangan_tidak_mampu'");
                     $surat_fetch = mysqli_fetch_array($surat);
-                    $jumlah = mysqli_query($connect, "SELECT * FROM surat_keterangan_tidak_mampu");
+                    $jumlah = mysqli_query($connect, "SELECT * FROM surat_keterangan WHERE jenis_surat = 'Surat Keterangan Tidak Mampu' && status_surat = 'SELESAI'");
                     $row_jumlah = mysqli_num_rows($jumlah);
+                    $no = $row_jumlah + 1;
                     $year = date("Y");
-                    $number_surat = $surat_fetch['no_surat']."/". $row_jumlah ."/35.07.31.2006"."/".$year;
+                    $number_surat = $surat_fetch['no_surat']."/". $no ."/35.07.31.2006"."/".$year;
                   
                   ?>
                     <div class="form-group">
@@ -252,19 +253,19 @@
                   </div>
                 </div>
               </div>
-              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
+              <!-- <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5> -->
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Keperluan</label>
+                      <label class="col-sm-3 control-label">Status</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
+                        <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<php echo $row['keperluan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-md-6">
                   <div class="box-body pull-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
