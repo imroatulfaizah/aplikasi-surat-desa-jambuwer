@@ -41,16 +41,16 @@
         if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
       ?>
     			<li>
-     				<a href="../penduduk/"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
+     				<a href="../../penduduk/"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
      			</li>
            <li>
-     				<a href="../pejabatdesa"><i class="fa fa-circle-notch"></i> Pejabat Desa</a>
+     				<a href="../../pejabatdesa"><i class="fa fa-circle-notch"></i> Pejabat Desa</a>
      			</li>
            <?php 
         }else{
           ?>
           <li>
-     				<a href="../penduduk"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
+     				<a href="../../penduduk"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
      			</li>
            <?php
         }
@@ -89,7 +89,7 @@
         }
       ?>
    		<li>
-   			<a href="../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
+   			<a href="../../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
    		</li>
   	</ul>
   </section>
