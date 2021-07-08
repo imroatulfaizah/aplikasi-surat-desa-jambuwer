@@ -126,7 +126,7 @@
             </div>
           <div class="box-body">
             <div class="row">
-              <form class="form-horizontal" method="post" action="ambil_simpan.php">
+              <form class="form-horizontal" method="post" enctype="multipart/form-data" action="ambil_simpan.php">
                 <div class="col-md-6">
                   <div class="box-body">
                     <!-- <div class="form-group">
@@ -176,7 +176,7 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">KTP</label>
                         <div class="col-md-8">
-                            <input name="ktp" type="file" required="required">
+                            <input name="foto" type="file" required="required">
                         </div>
                     </div>
                   </div>

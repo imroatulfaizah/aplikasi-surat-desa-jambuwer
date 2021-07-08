@@ -7,14 +7,17 @@
         $nama = $_POST['fnama'];
         $alamat = $_POST['falamat'];
         $no_telp = $_POST['fnotelp'];
-        $ktp = "tes";
+        //$ktp = "tes";
         $tanggal = date("Y/m/d");
         $replace = str_replace(" ","_",$jenis_surat);
-        
-    
-        $ambil_surat = "INSERT INTO surat_diambil VALUES(NULL, '$id_surat','$jenis_surat', '$nama', '$alamat', '$no_telp', '$ktp', '$tanggal')";
-        //var_dump($ambil_surat);
-        
+
+
+        $target_file = "../../../gambar/";
+        $foto=$_FILES['foto']['name'];
+        move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file.$foto);
+           
+        $ambil_surat = "INSERT INTO surat_diambil VALUES(NULL, '$id_surat','$jenis_surat', '$nama', '$alamat', '$no_telp', '$foto', '$tanggal')";
+      
         $simpan_ambil = mysqli_query($connect, $ambil_surat);
         
         if($jenis_surat=="Surat Keterangan"){
