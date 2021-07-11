@@ -47,9 +47,18 @@
         } else if($jenis_surat=="Surat Lapor Hajatan"){
             $sudah_diambil = "UPDATE $replace SET ambil = 'Sudah' WHERE id_slh = $id_surat";
 
-            // var_dump($sudah_diambil);
-            // die();
+        } else if($jenis_surat=="Surat Keterangan Kehilangan"){
+            $sudah_diambil = "UPDATE surat_keterangan SET ambil = 'Sudah' WHERE id_sk = $id_surat";
+
+        } else if($jenis_surat=="Surat Keterangan Beasiswa"){
+            $sudah_diambil = "UPDATE surat_keterangan_beasiswa SET ambil = 'Sudah' WHERE id_sk = $id_surat";
+        } else if($jenis_surat=="Surat Keterangan Status"){
+            $sudah_diambil = "UPDATE surat_keterangan SET ambil = 'Sudah' WHERE id_sk = $id_surat";
+
+        } else if($jenis_surat=="Surat Keterangan Penghasilan Orang Tua"){
+            $sudah_diambil = "UPDATE surat_keterangan SET ambil = 'Sudah' WHERE id_sk = $id_surat";
         }
+
         $save = mysqli_query($connect, $sudah_diambil);
         if($simpan_ambil & $save){
             header("location:index.php");

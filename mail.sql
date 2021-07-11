@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 29, 2021 at 08:11 AM
+-- Generation Time: Jul 09, 2021 at 07:04 AM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -76,14 +76,45 @@ INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nomor_surat`
+--
+
+DROP TABLE IF EXISTS `nomor_surat`;
+CREATE TABLE IF NOT EXISTS `nomor_surat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_surat` varchar(150) NOT NULL,
+  `no_surat` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nomor_surat`
+--
+
+INSERT INTO `nomor_surat` (`id`, `jenis_surat`, `no_surat`) VALUES
+(1, 'surat_lapor_hajatan', '431'),
+(2, 'surat_keterangan_usaha', '510'),
+(3, 'surat_pengantar_skck', '470'),
+(4, 'surat_keterangan_kepemilikan_kendaraan_bermotor', '474'),
+(5, 'surat_keterangan_tidak_mampu', '605'),
+(6, 'surat_keterangan_domisili', '471'),
+(7, 'surat_keterangan_berkelakuan_baik', '330'),
+(8, 'surat_keterangan', '471'),
+(9, 'surat_keterangan_beasiswa', '422.5');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pejabat_desa`
 --
 
 DROP TABLE IF EXISTS `pejabat_desa`;
 CREATE TABLE IF NOT EXISTS `pejabat_desa` (
   `id_pejabat_desa` int(11) NOT NULL AUTO_INCREMENT,
+  `NIK` varchar(100) NOT NULL,
   `nama_pejabat_desa` varchar(50) NOT NULL,
   `jabatan` varchar(20) NOT NULL,
+  `status` int(1) NOT NULL,
   PRIMARY KEY (`id_pejabat_desa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -91,9 +122,9 @@ CREATE TABLE IF NOT EXISTS `pejabat_desa` (
 -- Dumping data for table `pejabat_desa`
 --
 
-INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`) VALUES
-(1, 'Tuwuhadi', 'Kepala Desa'),
-(2, 'Seto Giswono', 'Plt. Kepala Desa');
+INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `NIK`, `nama_pejabat_desa`, `jabatan`, `status`) VALUES
+(1, '3507310401660003', 'Tuwuhadi', 'Kepala Desa', 1),
+(2, '3507312211840003', 'Seto Giswono', 'Plt. Kepala Desa', 1);
 
 -- --------------------------------------------------------
 
@@ -167,20 +198,91 @@ INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `no_telpon`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `surat_diambil`
+--
+
+DROP TABLE IF EXISTS `surat_diambil`;
+CREATE TABLE IF NOT EXISTS `surat_diambil` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_surat` int(11) NOT NULL,
+  `jenis_surat` varchar(150) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `alamat` varchar(150) NOT NULL,
+  `no_telp` varchar(50) NOT NULL,
+  `ktp` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_diambil`
+--
+
+INSERT INTO `surat_diambil` (`id`, `id_surat`, `jenis_surat`, `nama`, `alamat`, `no_telp`, `ktp`, `tanggal`) VALUES
+(2, 1, 'Surat Pengantar SKCK', 'tes', 'tes', '4232', '6.jpg', '2021-07-08'),
+(3, 3, 'Surat Lapor Hajatan', 'Rudi', 'Jambuwer', '085755524255', '15.png', '2021-07-08');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `surat_keterangan`
 --
 
 DROP TABLE IF EXISTS `surat_keterangan`;
 CREATE TABLE IF NOT EXISTS `surat_keterangan` (
   `id_sk` int(11) NOT NULL AUTO_INCREMENT,
-  `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `jenis_surat` varchar(150) NOT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
-  `keperluan` varchar(50) NOT NULL,
+  `keperluan` varchar(150) DEFAULT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) DEFAULT NULL,
+  `tgl_hilang` date DEFAULT NULL,
+  `penghasilan` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_sk`),
+  KEY `idx_nik` (`nik`),
+  KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  KEY `idx_id_profil_desa` (`id_profil_desa`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_keterangan`
+--
+
+INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`, `ambil`, `tgl_hilang`, `penghasilan`) VALUES
+(1, 'Surat Keterangan Status', '471/1/35.07.31.2006/2021', '3517112233440001', 'berstatus Jejaka. (Belum Nikah)', '2021-07-08 23:10:17', 1, 'SELESAI', 1, '', NULL, NULL),
+(2, 'Surat Keterangan Kehilangan', '471/2/35.07.31.2006/2021', '3517112233440001', 'Handphone', '2021-07-08 23:52:48', 2, 'SELESAI', 1, '', NULL, NULL),
+(3, 'Surat Keterangan Kehilangan', NULL, '3517112233440001', 'Handphone', '2021-07-08 23:57:12', NULL, 'PENDING', 1, '', NULL, NULL),
+(4, 'Surat Keterangan Kehilangan', '471/3/35.07.31.2006/2021', '3517112233440001', 'Handphone', '2021-07-09 00:08:30', 1, 'SELESAI', 1, '', '2021-07-09', NULL),
+(5, 'Surat Keterangan Status', NULL, '3517112233440001', 'berstatus Jejaka. (Belum Nikah)', '2021-07-09 00:09:31', NULL, 'PENDING', 1, '', NULL, NULL),
+(6, 'Surat Keterangan Penghasilan Orang Tua', '471/1/35.07.31.2006/2021', '3517112233440001', 'Muhammad Ilham', '2021-07-09 01:03:30', 1, 'SELESAI', 1, '', NULL, '1000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_beasiswa`
+--
+
+DROP TABLE IF EXISTS `surat_keterangan_beasiswa`;
+CREATE TABLE IF NOT EXISTS `surat_keterangan_beasiswa` (
+  `id_sk` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_surat` varchar(150) NOT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `nama_anak` varchar(150) DEFAULT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `jenis_kelamin` varchar(20) NOT NULL,
+  `nama_sekolah` varchar(100) NOT NULL,
+  `kelas` varchar(20) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_sk`),
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -188,11 +290,11 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surat_keterangan`
+-- Dumping data for table `surat_keterangan_beasiswa`
 --
 
-INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Keterangan', '121321', '3517112233440001', 'Surat Keterangan Tidak Mampu', '2021-06-20 04:07:21', 1, 'SELESAI', 1);
+INSERT INTO `surat_keterangan_beasiswa` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `nama_anak`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `nama_sekolah`, `kelas`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`, `ambil`) VALUES
+(1, 'Surat Keterangan Beasiswa', '422.5/1/35.07.31.2006/2021', '3517112233440001', 'Muhammad', 'Malang', '2021-07-09', 'Laki-Laki', 'SMPN 1 Malang', 'VII', '2021-07-09 02:47:15', 1, 'SELESAI', 1, '');
 
 -- --------------------------------------------------------
 
@@ -204,13 +306,14 @@ DROP TABLE IF EXISTS `surat_keterangan_berkelakuan_baik`;
 CREATE TABLE IF NOT EXISTS `surat_keterangan_berkelakuan_baik` (
   `id_skbb` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `keperluan` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_skbb`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   KEY `idx_nik` (`nik`),
@@ -221,8 +324,8 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan_berkelakuan_baik` (
 -- Dumping data for table `surat_keterangan_berkelakuan_baik`
 --
 
-INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440001', 'Surat Keterangan Tidak Mampu', '2021-06-28 21:35:39', NULL, 'PENDING', 1);
+INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`, `ambil`) VALUES
+(1, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440001', 'Surat Keterangan Tidak Mampu', '2021-06-28 21:35:39', NULL, 'PENDING', 1, '');
 
 -- --------------------------------------------------------
 
@@ -234,12 +337,13 @@ DROP TABLE IF EXISTS `surat_keterangan_domisili`;
 CREATE TABLE IF NOT EXISTS `surat_keterangan_domisili` (
   `id_skd` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_skd`),
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -256,7 +360,7 @@ DROP TABLE IF EXISTS `surat_keterangan_kepemilikan_kendaraan_bermotor`;
 CREATE TABLE IF NOT EXISTS `surat_keterangan_kepemilikan_kendaraan_bermotor` (
   `id_skkkb` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `roda` varchar(20) NOT NULL,
   `merk_type` varchar(30) DEFAULT NULL,
@@ -275,6 +379,7 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan_kepemilikan_kendaraan_bermotor` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_skkkb`),
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -291,7 +396,7 @@ DROP TABLE IF EXISTS `surat_keterangan_perhiasan`;
 CREATE TABLE IF NOT EXISTS `surat_keterangan_perhiasan` (
   `id_skp` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `jenis_perhiasan` varchar(20) NOT NULL,
   `nama_perhiasan` varchar(50) NOT NULL,
@@ -303,6 +408,7 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan_perhiasan` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_skp`),
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -312,33 +418,34 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan_perhiasan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_keterangan_tidakmampu`
+-- Table structure for table `surat_keterangan_tidak_mampu`
 --
 
-DROP TABLE IF EXISTS `surat_keterangan_tidakmampu`;
-CREATE TABLE IF NOT EXISTS `surat_keterangan_tidakmampu` (
+DROP TABLE IF EXISTS `surat_keterangan_tidak_mampu`;
+CREATE TABLE IF NOT EXISTS `surat_keterangan_tidak_mampu` (
   `id_sk` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
-  `keperluan` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_sk`),
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   KEY `idx_id_profil_desa` (`id_profil_desa`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surat_keterangan_tidakmampu`
+-- Dumping data for table `surat_keterangan_tidak_mampu`
 --
 
-INSERT INTO `surat_keterangan_tidakmampu` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Keterangan', '121321', '3517112233440001', 'Surat Keterangan Tidak Mampu', '2021-06-20 04:07:21', 1, 'SELESAI', 1),
-(2, 'Surat Keterangan Tidak Mampu', NULL, '3517112233440001', 'Surat Keterangan Tidak Mampu', '2021-06-28 22:16:27', NULL, 'PENDING', 1);
+INSERT INTO `surat_keterangan_tidak_mampu` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`, `ambil`) VALUES
+(2, 'Surat Keterangan Tidak Mampu', '121321', '3517112233440001', '2021-06-28 22:16:27', 2, 'SELESAI', 1, 'Sudah'),
+(3, 'Surat Keterangan Tidak Mampu', '605/1/35.07.31.2006/2021', '3517112233440001', '2021-07-09 02:11:11', 1, 'SELESAI', 1, ''),
+(4, 'Surat Keterangan Tidak Mampu', NULL, '3517112233440001', '2021-07-09 02:11:22', NULL, 'PENDING', 1, '');
 
 -- --------------------------------------------------------
 
@@ -350,7 +457,7 @@ DROP TABLE IF EXISTS `surat_keterangan_usaha`;
 CREATE TABLE IF NOT EXISTS `surat_keterangan_usaha` (
   `id_sku` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `usaha` varchar(30) DEFAULT NULL,
   `alamat_usaha` varchar(200) NOT NULL,
@@ -359,6 +466,7 @@ CREATE TABLE IF NOT EXISTS `surat_keterangan_usaha` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_sku`),
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -375,7 +483,7 @@ DROP TABLE IF EXISTS `surat_lapor_hajatan`;
 CREATE TABLE IF NOT EXISTS `surat_lapor_hajatan` (
   `id_slh` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `bukti_ktp` varchar(30) DEFAULT NULL,
   `bukti_kk` varchar(30) DEFAULT NULL,
@@ -389,18 +497,21 @@ CREATE TABLE IF NOT EXISTS `surat_lapor_hajatan` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_slh`),
   KEY `idx_id_profil_desa` (`id_profil_desa`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   KEY `idx_nik` (`nik`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `surat_lapor_hajatan`
 --
 
-INSERT INTO `surat_lapor_hajatan` (`id_slh`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `jenis_hajat`, `hari`, `tanggal`, `jenis_hiburan`, `pemilik`, `alamat_pemilik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Lapor Hajatan', '121321', '3517112233440001', '35070', '', 'Khitanan', 'Senin', '2021-06-14 00:00:00', 'tidak ada', 'tidak ada', 'Tidak ada', '2021-06-14 22:42:48', 1, 'SELESAI', 1);
+INSERT INTO `surat_lapor_hajatan` (`id_slh`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `jenis_hajat`, `hari`, `tanggal`, `jenis_hiburan`, `pemilik`, `alamat_pemilik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`, `ambil`) VALUES
+(1, 'Surat Lapor Hajatan', '121321', '3517112233440001', '35070', '', 'Khitanan', 'Senin', '2021-06-14 00:00:00', 'tidak ada', 'tidak ada', 'Tidak ada', '2021-06-14 22:42:48', 1, 'SELESAI', 1, 'Sudah'),
+(2, 'Surat Lapor Hajatan', '121321', '3517112233440001', '35070', '1234', 'Pernikahan', 'Senin', '2021-07-05 00:00:00', 'tidak ada', 'tidak ada', 'Tidak ada', '2021-07-05 01:25:01', 2, 'SELESAI', 1, 'Sudah'),
+(3, 'Surat Lapor Hajatan', '431/3/35.07.31.2006/2021', '3517112233440001', '35070', '', 'Pernikahan', 'Rabu', '2021-07-07 00:00:00', 'tidak ada', 'tidak ada', 'Tidak ada', '2021-07-07 13:13:34', 1, 'SELESAI', 1, 'Sudah');
 
 -- --------------------------------------------------------
 
@@ -412,7 +523,7 @@ DROP TABLE IF EXISTS `surat_pengantar_skck`;
 CREATE TABLE IF NOT EXISTS `surat_pengantar_skck` (
   `id_sps` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_surat` varchar(50) NOT NULL,
-  `no_surat` varchar(20) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `bukti_ktp` varchar(30) DEFAULT NULL,
   `bukti_kk` varchar(30) DEFAULT NULL,
@@ -423,6 +534,7 @@ CREATE TABLE IF NOT EXISTS `surat_pengantar_skck` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL,
+  `ambil` varchar(50) NOT NULL,
   PRIMARY KEY (`id_sps`),
   KEY `idx_nik` (`nik`),
   KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -433,10 +545,10 @@ CREATE TABLE IF NOT EXISTS `surat_pengantar_skck` (
 -- Dumping data for table `surat_pengantar_skck`
 --
 
-INSERT INTO `surat_pengantar_skck` (`id_sps`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `keperluan`, `keterangan`, `masa_berlaku`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Pengantar SKCK', '121321', '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', '30 Hari', '2021-06-14 19:44:07', 1, 'SELESAI', 1),
-(2, 'Surat Pengantar SKCK', '121321', '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', '3 Hari', '2021-06-15 13:18:55', 1, 'SELESAI', 1),
-(3, 'Surat Pengantar SKCK', NULL, '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', NULL, '2021-06-28 21:27:40', NULL, 'PENDING', 1);
+INSERT INTO `surat_pengantar_skck` (`id_sps`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `keperluan`, `keterangan`, `masa_berlaku`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`, `ambil`) VALUES
+(1, 'Surat Pengantar SKCK', '121321', '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', '30 Hari', '2021-06-14 19:44:07', 1, 'SELESAI', 1, 'Sudah'),
+(2, 'Surat Pengantar SKCK', '121321', '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', '3 Hari', '2021-06-15 13:18:55', 1, 'SELESAI', 1, 'Sudah'),
+(3, 'Surat Pengantar SKCK', '470/3/35.07.31.2006/2021', '3517112233440001', '35070', '', 'Permohonan SKCK', 'Untuk melamar Kerja', '30 Hari', '2021-06-28 21:27:40', 1, 'SELESAI', 1, 'Sudah');
 
 --
 -- Constraints for dumped tables

@@ -45,6 +45,9 @@
            <li>
      				<a href="../../pejabatdesa"><i class="fa fa-circle-notch"></i> Pejabat Desa</a>
      			</li>
+          <li>
+            <a href="../../nomorsurat"><i class="fa fa-circle-notch"></i> Nomor Surat</a>
+          </li>
            <?php 
         }else{
           ?>
@@ -88,7 +91,7 @@
         }
       ?>
    		<li>
-   			<a href="../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
+   			<a href="../../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
    		</li>
   	</ul>
   </section>

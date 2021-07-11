@@ -47,6 +47,9 @@
            <li>
      				<a href="../../pejabatdesa"><i class="fa fa-circle-notch"></i> Pejabat Desa</a>
      			</li>
+          <li>
+            <a href="../../nomorsurat"><i class="fa fa-circle-notch"></i> Nomor Surat</a>
+          </li>
            <?php 
         }else{
           ?>

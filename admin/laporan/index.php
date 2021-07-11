@@ -37,42 +37,52 @@
     </div>
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li>
-        <a href="../dashboard/">
+      <li class="active">
+        <a href="#">
           <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span>
         </a>
       </li>
-      <li class="treeview">
-   			<a href="#">
-     			<i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Mastering</span>
-     			<span class="pull-right-container">
-     				<i class="fa fa-angle-left pull-right"></i>
-     			</span>
-   			</a>
-   			<ul class="treeview-menu">
+      
+       <li class="treeview">
+        <a href="#">
+          <i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Mastering</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
          <?php
         if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
       ?>
-    			<li>
-     				<a href="../penduduk/"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
-     			</li>
+          <li>
+            <a href="../penduduk/"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
+          </li>
            <li>
-     				<a href="../pejabatdesa"><i class="fa fa-circle-notch"></i> Pejabat Desa</a>
-     			</li>
+            <a href="../pejabatdesa"><i class="fa fa-circle-notch"></i> Pejabat Desa</a>
+          </li>
+           <li>
+            <a href="../nomorsurat"><i class="fa fa-circle-notch"></i> Nomor Surat</a>
+          </li>
            <?php 
         }else{
           ?>
           <li>
-     				<a href="../pejabatdesa"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
-     			</li>
+            <a href="../pejabatdesa"><i class="fa fa-circle-notch"></i> Data Penduduk</a>
+          </li>
            <?php
         }
       ?>
-     			
-   			</ul>
-      
+          
+        </ul>
+      </li>
+       
+      <!-- <li>
+        <a href="../penduduk/">
+          <i class="fa fa-users"></i> <span>Data Penduduk</span>
+        </a>
+      </li> -->
       <?php
-        if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+        if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator') || ($_SESSION['lvl'] = "Kepala Desa")){
       ?>
       <li class="treeview">
         <a href="#">
@@ -92,29 +102,11 @@
       </li>
       <?php 
         }else{
-          ?>
-          <li class="active treeview">
-        <a href="#">
-          <i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Surat</span>
-          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-        </a>
-        <ul class="treeview-menu">
-          <li>
-            <a href="../../surat/permintaan_surat/">
-              <i class="fa fa-circle-notch"></i> Permintaan Surat
-            </a>
-          </li>
-          <li class="active">
-            <a href="#"><i class="fa fa-circle-notch"></i> Surat Selesai
-            </a>
-          </li>
-        </ul>
-      </li>
-          <?php
+          
         }
       ?>
-      <li class="active">
-        <a href="#"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
+      <li>
+        <a href="../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
       </li>
     </ul>
   </section>

@@ -47,6 +47,9 @@
            <li>
      				<a href="../../pejabatdesa"><i class="fa fa-circle-notch"></i> Pejabat Desa</a>
      			</li>
+          <li>
+            <a href="../../nomorsurat"><i class="fa fa-circle-notch"></i> Nomor Surat</a>
+          </li>
            <?php 
         }else{
           ?>
@@ -90,7 +93,7 @@
         }
       ?>
    		<li>
-   			<a href="../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
+   			<a href="../../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
    		</li>
   	</ul>
   </section>
@@ -184,6 +187,12 @@
                       <label class="col-sm-4 control-label">No. Telp</label>
                       <div class="col-sm-8">
                         <input type="text" name="fnotelp" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['no_telp']; ?>" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Tanggal</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fnotelp" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['tanggal']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
