@@ -192,12 +192,30 @@
               <form method="get" action="">
                 <div class="modal-body">
                   <div class="form-group">
-                    <label>Filter Berdasarkan</label>
+                    <label>Filter Berdasarkan Waktu</label>
                     <select class="form-control" name="filter" id="filter">
                       <option value="1">Semua Waktu</option>
                       <option value="2">Per Tanggal</option>
                       <option value="3">Per Bulan</option>
                       <option value="4">Per Tahun</option>
+                      <option value="5">Jenis Surat</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="form-jenis">
+                    <label>Jenis Surat</label>
+                    <select class="form-control" name="filterjenis" id="filterjenis">
+                    <option value="Surat Keterangan Berkelakuan Baik">SURAT KETERANGAN BERKELAKUAN BAIK</option>
+                    <option value="Surat Keterangan Domisili">SURAT KETERANGAN DOMISILI</option>
+                    <option value="Surat Keterangan Kepemilikan Kendaraan Bermotor">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</option>
+                    <option value="Surat Keterangan Perhiasan">SURAT KETERANGAN PERHIASAN</option>
+                    <option value="Surat Keterangan Usaha">SURAT KETERANGAN USAHA</option>
+                    <option value="Surat Lapor Hajatan">SURAT LAPOR HAJATAN</option>
+                    <option value="Surat Pengantar Skck">SURAT PENGANTAR SKCK</option>
+                    <option value="Surat Keterangan Tidak Mampu">SURAT KETERANGAN TIDAK MAMPU</option>
+                    <option value="Surat Keterangan Beasiswa">SURAT KETERANGAN BEASISWA</option>
+                    <option value="Surat Keterangan Status">SURAT KETERANGAN STATUS</option>
+                    <option value="Surat Keterangan Kehilangan">SURAT KETERANGAN KEHILANGAN</option>
+                    <option value="Surat Keterangan Penghasilan Orang Tua">SURAT KETERANGAN PENGHASILAN ORANG TUA</option>
                     </select>
                   </div>
                   <div class="form-group" id="form-tanggal">
@@ -282,6 +300,42 @@
               UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.tanggal_surat, surat_keterangan_usaha.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND YEAR(surat_keterangan_usaha.tanggal_surat)='{$_GET['tahun']}'
               UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.tanggal_surat, surat_lapor_hajatan.jenis_surat FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='selesai' AND YEAR(surat_lapor_hajatan.tanggal_surat)='{$_GET['tahun']}'
               UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_pengantar_skck.no_surat, surat_pengantar_skck.tanggal_surat, surat_pengantar_skck.jenis_surat FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='selesai' AND YEAR(surat_pengantar_skck.tanggal_surat)='{$_GET['tahun']}' ORDER BY tanggal_surat";
+            }else if($filter == '5'){
+              $filterjenis = $_GET['filterjenis'];
+              if($filterjenis == 'Surat Keterangan Status'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.no_surat, surat_keterangan.tanggal_surat, surat_keterangan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND surat_keterangan.jenis_surat = '{$_GET['filterjenis']}'";
+              } else if($filterjenis == 'Surat Keterangan Berkelakuan Baik'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.no_surat, surat_keterangan_berkelakuan_baik.tanggal_surat, surat_keterangan_berkelakuan_baik.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' AND surat_keterangan_berkelakuan_baik.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Domisili'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.tanggal_surat, surat_keterangan_domisili.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' AND surat_keterangan_domisili.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Kepemilikan Kendaraan Bermotor'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_kepemilikan_kendaraan_bermotor.no_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.tanggal_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_kepemilikan_kendaraan_bermotor ON surat_keterangan_kepemilikan_kendaraan_bermotor.nik = penduduk.nik WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat='selesai' AND surat_keterangan_kepemilikan_kendaraan_bermotor.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Perhiasan'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_perhiasan.no_surat, surat_keterangan_perhiasan.tanggal_surat, surat_keterangan_perhiasan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_perhiasan ON surat_keterangan_perhiasan.nik = penduduk.nik WHERE surat_keterangan_perhiasan.status_surat='selesai' AND surat_keterangan_perhiasan.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Usaha'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.tanggal_surat, surat_keterangan_usaha.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND surat_keterangan_usaha.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Lapor Hajatan'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.tanggal_surat, surat_lapor_hajatan.jenis_surat FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='selesai' AND surat_lapor_hajatan.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Pengantar Skck'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_pengantar_skck.no_surat, surat_pengantar_skck.tanggal_surat, surat_pengantar_skck.jenis_surat FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='selesai' AND surat_pengantar_skck.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Tidak Mampu'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.tanggal_surat, surat_keterangan_tidak_mampu.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.status_surat='selesai' AND surat_keterangan_tidak_mampu.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Beasiswa'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_beasiswa.no_surat, surat_keterangan_beasiswa.tanggal_surat, surat_keterangan_beasiswa.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_beasiswa ON surat_keterangan_beasiswa.nik = penduduk.nik WHERE surat_keterangan_beasiswa.status_surat='selesai' AND surat_keterangan_beasiswa.jenis_surat='{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Kehilangan'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.no_surat, surat_keterangan.tanggal_surat, surat_keterangan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND surat_keterangan.jenis_surat = '{$_GET['filterjenis']}'";
+              }else if($filterjenis == 'Surat Keterangan Penghasilan Orang Tua'){
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.no_surat, surat_keterangan.tanggal_surat, surat_keterangan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND surat_keterangan.jenis_surat = '{$_GET['filterjenis']}'";
+              }else{
+                $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan.no_surat, surat_keterangan.tanggal_surat, surat_keterangan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai'
+            UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_berkelakuan_baik.no_surat, surat_keterangan_berkelakuan_baik.tanggal_surat, surat_keterangan_berkelakuan_baik.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
+            UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.tanggal_surat, surat_keterangan_domisili.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' 
+            UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_kepemilikan_kendaraan_bermotor.no_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.tanggal_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_kepemilikan_kendaraan_bermotor ON surat_keterangan_kepemilikan_kendaraan_bermotor.nik = penduduk.nik WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat='selesai'
+            UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_perhiasan.no_surat, surat_keterangan_perhiasan.tanggal_surat, surat_keterangan_perhiasan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_perhiasan ON surat_keterangan_perhiasan.nik = penduduk.nik WHERE surat_keterangan_perhiasan.status_surat='selesai'
+            UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.tanggal_surat, surat_keterangan_usaha.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' 
+            UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.tanggal_surat, surat_lapor_hajatan.jenis_surat FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='selesai'
+            UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_pengantar_skck.no_surat, surat_pengantar_skck.tanggal_surat, surat_pengantar_skck.jenis_surat FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='selesai' ORDER BY tanggal_surat";
+              }   
             }
           }else{
             $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan.no_surat, surat_keterangan.tanggal_surat, surat_keterangan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai'
@@ -348,21 +402,24 @@
         </table><br>
         <script>
           $(document).ready(function(){
-            $('#form-tanggal, #form-bulan, #form-tahun').hide();
+            $('#form-tanggal, #form-bulan, #form-tahun, #form-jenis').hide();
             $('#filter').change(function(){
               if($(this).val() == '1'){
-                $('#form-tanggal, #form-bulan, #form-tahun').hide();
+                $('#form-tanggal, #form-bulan, #form-tahun, #form-jenis').hide();
               }else if($(this).val() == '2'){
-                $('#form-bulan, #form-tahun').hide();
+                $('#form-bulan, #form-tahun, #form-jenis').hide();
                 $('#form-tanggal').show();
               }else if($(this).val() == '3'){
-                $('#form-tanggal').hide();
+                $('#form-tanggal, #form-jenis').hide();
                 $('#form-bulan, #form-tahun').show();
-              }else{
-                $('#form-tanggal, #form-bulan').hide();
+              }else if($(this).val() == '4'){
+                $('#form-tanggal, #form-bulan, #form-jenis').hide();
                 $('#form-tahun').show();
+              }else{
+                $('#form-tanggal, #form-bulan, #form-tahun').hide();
+                $('#form-jenis').show();
               }
-              $('#form-tanggal input, #form-bulan select, #form-tahun select').val('');
+              $('#form-tanggal input, #form-bulan select, #form-tahun, #form-jenis select').val('');
             })
           })
         </script>
