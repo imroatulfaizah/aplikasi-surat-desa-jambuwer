@@ -159,16 +159,16 @@
                         </script>
                       </div>
                     </div> -->
-                    <div class="form-group" hidden>
-                      <label class="col-sm-4 control-label">Id</label>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">No. Pengambilan</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fid_surat" value="<?php echo $_GET['id'];?>" class="form-control" style="text-transform: capitalize;">
+                        <input type="text" name="fid_surat" value="<?php echo $_GET['id'];?>" class="form-control" style="text-transform: capitalize;" readonly>
                       </div>
                     </div>
-                    <div class="form-group" hidden>
+                    <div class="form-group">
                       <label class="col-sm-4 control-label">Jenis Surat</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fjenis_surat" value="<?php echo $_GET['jenis'];?>" class="form-control" style="text-transform: capitalize;">
+                        <input type="text" name="fjenis_surat" value="<?php echo $_GET['jenis'];?>" class="form-control" style="text-transform: capitalize;" readonly>
                       </div>
                     </div>
                     <div class="form-group">
